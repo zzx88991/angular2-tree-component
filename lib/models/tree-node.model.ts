@@ -93,7 +93,10 @@ export class TreeNode implements ITreeNode {
   }
 
   _getLastOpenDescendant() {
-    return this.isCollapsed ? this : this.getLastChild()._getLastOpenDescendant();
+    const lastChild = this.getLastChild();
+    return (this.isCollapsed || !lastChild)
+      ? this
+      : lastChild._getLastOpenDescendant();
   }
 
   private _getParentsChildren() {
@@ -150,6 +153,7 @@ export class TreeNode implements ITreeNode {
   focus() {
     let previousNode = this.treeModel.focusedNode;
     this.treeModel.focusedNode = this;
+    this.elementRef.nativeElement.scrollIntoViewIfNeeded();
     if (previousNode) {
       this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: previousNode });
     }

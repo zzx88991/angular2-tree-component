@@ -63,7 +63,7 @@ import { TreeNodeContent } from './tree-node-content.component';
       <div class="tree-children" *ngIf="node.isExpanded">
         <div *ngIf="node.children">
           <TreeNode          
-            *ngFor="#node of node.children"
+            *ngFor="let node of node.children"
             [node]="node">
           </TreeNode>
         </div>
@@ -76,10 +76,14 @@ import { TreeNodeContent } from './tree-node-content.component';
   `
 })
 
-export class TreeNodeComponent {
+export class TreeNodeComponent implements AfterViewInit {
   @Input() node:TreeNode;
 
   constructor(private componentLoader: DynamicComponentLoader,
               private elementRef: ElementRef) {
+  }
+
+  ngAfterViewInit() {
+    this.node.elementRef = this.elementRef;
   }
 }
