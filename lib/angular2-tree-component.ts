@@ -50,11 +50,6 @@ export {
 export class TreeModule {}
 @NgModule({
   declarations: [
-    LoadingComponent,
-    TreeComponent,
-    TreeNodeComponent,
-    TreeNodeContent,
-    TreeNodeDropSlot,
     DeprecatedLoadingComponent,
     DeprecatedTreeNodeContent,
   ],
