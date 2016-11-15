@@ -82,3 +82,5 @@ There are currently no unit tests (yet).
 However, if you wish to contribute code, you can run `npm run example:webpack` and open localhost:3000 to test your code manually before submitting a pull request.
 
 Please email me at adam@500tech.com before starting to work on a feature / bug to make sure it's something that I'm not working on already.
+
+This is from Z
